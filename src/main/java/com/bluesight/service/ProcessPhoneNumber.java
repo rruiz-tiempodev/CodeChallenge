@@ -30,7 +30,7 @@ public class ProcessPhoneNumber {
 		phoneNumber = phoneNumber.replace("(", "");
 		phoneNumber = phoneNumber.replace(")", "");
 		
-		dictionary.sort(Comparator.comparingInt(String::length));
+		//dictionary.sort(Comparator.comparingInt(String::length));
 		
 		List<Set<Character>> sets = new ArrayList<>();
 		
@@ -46,7 +46,7 @@ public class ProcessPhoneNumber {
 			boolean include = true;
 			int x = 0;
 			for (Character c: name.toCharArray()) {
-				include &= sets.get(x).contains(c);
+				include &= sets.get(x) != null && sets.get(x).contains(c);
 				x++;
 			}
 			if (include) {
